@@ -1,0 +1,41 @@
+.box {
+    box-shadow: 2px 8px 8px 0 rgba(34, 21, 21, 0.2);
+    border: 1px solid rgb(24, 23, 23, 0.5);
+    border-radius: 5px;
+    padding: 8px 8px;
+    margin: 3%;
+}
+a {
+    text-decoration: none;
+}
+.link {
+    color: #111;
+}
+.link:hover {
+    color: #2196F3
+}
+.text-area {
+    resize: vertical;
+    /* background-color: blue; */
+}
+.form {
+    margin-top: 3%;
+}
+.login {
+    margin: 10%;
+}
+
+.error {
+    color: red;
+}
+#comment-form {
+    display: flex;
+     flex-direction: row;
+     /* justify-content:  space-evenly; */
+}
+
+#comment-input {
+    width: 85%;
+    margin: auto;
+
+}
