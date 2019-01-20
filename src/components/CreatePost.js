@@ -12,13 +12,14 @@ import './styles/Global.css';
 class CreatePost extends React.Component {
     state = {
         body: '',
-        tags: ''
+        tags: []
     };
 
   Submit(event) {
     event.preventDefault()
-    const data = {body:  this.state.body, tags: this.state.tags};
-    console.log(this.state);
+    const { body } = this.state;
+    const tags = body.match(/#\w+/g) || [];
+    const data = {body, tags};
     this.props.createPost(data);
 
   }
@@ -27,8 +28,6 @@ class CreatePost extends React.Component {
       <Container>
         <Form onSubmit={this.Submit.bind(this)} className="form">
           <legend>What is in your mind?</legend>
-          <Input placeholder="Title"
-            onChange={(e) => this.setState({tags: e.target.value})}/>
           <Textarea placeholder="Body"
             onChange={(e) => this.setState({body:  e.target.value})}
             className="text-area"/>

@@ -25,6 +25,10 @@ a {
     margin: 10%;
 }
 
+label {
+    color: #111;
+    font-size: 1em;
+}
 .error {
     color: red;
 }

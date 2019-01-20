@@ -9,21 +9,32 @@ import {connect} from 'react-redux';
 import {checkLogin, getCurrentUser} from '../actions';
 import Dropdown from 'muicss/lib/react/dropdown';
 import DropdownItem from 'muicss/lib/react/dropdown-item';
+import Button from 'muicss/lib/react/button';
 
 class Nav extends React.Component {
   componentWillMount() {
     this.props.checkLogin();
     this.props.getCurrentUser();
   }
+  logout() {
+    localStorage.removeItem('auth-token');
+    this.props.checkLogin();
+    window.location.assign('/login');
+  }
   renderNav() {
-    const {user} = this.props;
-    if (this.props.status && this.props.user) {
+    const {currentUser} = this.props;
+    if (this.props.status && this.props.currentUser) {
       return (
         <Dropdown color="primary" label="Account">
-          <DropdownItem link="/users">{user.username}</DropdownItem>
-          <DropdownItem>Option 2</DropdownItem>
-          <DropdownItem>Option 3</DropdownItem>
-          <DropdownItem>Option 4</DropdownItem>
+          <DropdownItem link={`/users/${currentUser._id}`}>
+            {currentUser.username}
+          </DropdownItem>
+          <DropdownItem link={`/settings/`}>
+          Settings
+          </DropdownItem>
+          <DropdownItem onClick={() => this.logout()}>
+          Logout
+          </DropdownItem>
         </Dropdown>
       );
     }
@@ -51,10 +62,10 @@ class Nav extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  const {status, user} = state.auth;
+  const {status, currentUser} = state.auth;
   return {
     status,
-    user,
+    currentUser,
   };
 };
 

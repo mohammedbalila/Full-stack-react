@@ -1,9 +1,10 @@
-import {fetchPosts, createPost, fetchPost} from './postsActions';
-import {login, checkLogin, getCurrentUser} from './AuthActions';
-import {createComment, fetchComments} from './CommentActions';
-import {fetchUser} from './UserActions';
+import { fetchPosts, createPost, fetchPost } from './postsActions';
+import { login, checkLogin, getCurrentUser, signup } from './AuthActions';
+import { createComment, fetchComments } from './CommentActions';
+import { fetchUser } from './UserActions';
 export {
   login,
+  signup,
   checkLogin,
   getCurrentUser,
   createPost,
@@ -11,5 +12,5 @@ export {
   fetchPost,
   createComment,
   fetchComments,
-  fetchUser
+  fetchUser,
 };

@@ -29,18 +29,18 @@ class Home extends React.Component {
         return (
           <Container key={post._id}>
             <div key={post._id}>
-                <h3>
+              <h3>
                 <Link to={`/users/${post.user._id}`}>
-                {post.user.username}
+                  {post.user.username}
                 </Link>
-                </h3>
+              </h3>
             </div>
             <p>
-            <Link to={`/posts/${post._id}`} className='link'>
-            {`${post.body.slice(0, 100)}...`}
-            </Link>
+              <Link to={`/posts/${post._id}`} className='link'>
+                {`${post.body.slice(0, 100)}...`}
+              </Link>
             </p>
-            <span>{post.tags.join('#')}</span>
+            <span>{post.tags}</span>
           </Container>
         );
       });

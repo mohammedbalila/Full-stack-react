@@ -10,6 +10,7 @@ import DropdownItem from 'muicss/lib/react/dropdown-item';
 import Home from './Home';
 import Post from './Post';
 import Login from './Login';
+import Signup from './Signup';
 import Nav from './RightNav';
 import User from './User';
 
@@ -40,6 +41,8 @@ class RootRouter extends React.Component {
           <Route path="/users/:id" component={User} />
           <Route path="/posts/:id" component={Post} />
           <Route path="/login" component={Login}/>
+          <Route path="/signup" component={Signup}/>
+
         </div>
       </Router>
     );
